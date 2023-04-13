@@ -1,0 +1,28 @@
+.login {
+    margin-left: 1rem;
+  }
+  
+  .login__button {
+    background-color: #6d3daf;
+    border: none;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease-in-out;
+    margin-right: 20px;
+  }
+  
+  .login__button:hover {
+    background-color: #754dad;
+    box-shadow: 0px 0px 0px 1px rgba(106, 58, 171, 0.1);
+  }
+  
+  .login__button:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px rgba(102, 76, 175, 0.4);
+  }
+  
