@@ -7,9 +7,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__logo">
-        <img src={logo} alt="Logo" />
-      </div>
+      <img src={logo} alt="Logo" loading="lazy" />
       <h1 className="header__title">News Snap</h1>
+      </div>
+      {/* <h1 className="header__title">News Snap</h1> */}
       <div className="header__right">
         <Login />
       </div>

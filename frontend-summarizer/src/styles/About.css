@@ -1,3 +1,7 @@
+body {
+  font-family: 'Source Serif Pro', sans-serif;
+}
+
 .about-container {
   display: flex;
   flex-wrap: wrap;
@@ -6,22 +10,21 @@
   padding: 50px;
   max-width: 100%;
   box-sizing: border-box;
-  height: 90vh;
- 
+  height: 85vh;
 }
 
 .about-text {
   flex-basis: 50%;
   padding-right: 30px;
   box-sizing: border-box;
-  margin-top: -20px; /* Add negative margin top */
-  
+  margin-top: -20px;
 }
 
 .about-text h1 {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
   margin-bottom: 30px;
+  font-family: 'Source Serif Pro', sans-serif;
 }
 
 .about-text p {
@@ -29,7 +32,6 @@
   line-height: 1.5;
   margin-bottom: 20px;
   text-align: justify;
-  
 }
 
 .about-text button {
@@ -43,7 +45,8 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   margin-top: 30px;
-  
+  margin-left: -10px;
+  font-family: 'Source Serif Pro', sans-serif;
 }
 
 .about-text button:hover {
@@ -54,16 +57,27 @@
   flex-basis: 50%;
   text-align: center;
   box-sizing: border-box;
-
-
 }
 
 .about-image img {
-  max-width: 62%; /* Increase width */
+  max-width: 62%;
   height: auto;
   border-radius: 15px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   margin-top: -10px;
   margin-bottom: 50px;
   margin-right: -70px;
+}
+
+.about-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.step-card {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+ 
 }

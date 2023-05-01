@@ -5,6 +5,7 @@ const GenericSummarizer = () => {
   const [inputValue, setInputValue] = useState("");
   const [summaryValue, setSummaryValue] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(event.target.value);
@@ -15,8 +16,24 @@ const GenericSummarizer = () => {
       setError("Please enter some text to summarize.");
       setSummaryValue("");
     } else {
-      // Code to summarize the input value and update the summary state
-      setSummaryValue("This is the summary.");
+      setIsLoading(true);
+      fetch("http://localhost:5000/api/summarize", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ text: inputValue })
+      })
+        .then(response => response.json())
+        .then(data => {
+          setSummaryValue(data.summary);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.log(error);
+          setIsLoading(false);
+        });
+
       setError("");
     }
   };
@@ -32,7 +49,7 @@ const GenericSummarizer = () => {
       <h1 className="title">Generic Summarizer</h1>
       <div className="input-output-container">
         <div className="input-container">
-          <label htmlFor="input" style={{ padding: "0.5rem" }}>
+          <label htmlFor="input" style={{ padding: "0.5rem", color: "#6a3bab", fontWeight: "bold" }}>
             Input:
           </label>
           <textarea
@@ -42,9 +59,14 @@ const GenericSummarizer = () => {
             placeholder="Paste your text here"
             style={{ height: "15rem", padding: "0.5rem" }}
           />
+          <p>
+            <span className="word-count">
+              Word count: {inputValue.split(/\s+/).filter((word) => word).length}
+            </span>
+          </p>
         </div>
         <div className="output-container">
-          <label htmlFor="summary" style={{ padding: "0.5rem" }}>
+          <label htmlFor="summary" style={{ padding: "0.5rem", color: "#6a3bab", fontWeight: "bold" }}>
             Summary:
           </label>
           <textarea
@@ -53,6 +75,12 @@ const GenericSummarizer = () => {
             readOnly
             style={{ height: "15rem", padding: "0.5rem" }}
           />
+          {isLoading && <div className="loader"></div>}
+          <p>
+            <span className="word-count">
+              Word count: {summaryValue.split(/\s+/).filter((word) => word).length}
+            </span>
+          </p>
         </div>
       </div>
       {error && (

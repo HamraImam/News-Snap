@@ -11,12 +11,19 @@ const About = () => {
         <div className="about-text">
           <h1>Stay Informed with the Latest News</h1>
           <p>
-          News Snap is a news summarizer app that allows you to stay informed with the latest news stories quickly and easily. With just a few clicks, you can get a summarized version of news articles from various sources, saving you time and effort in keeping up with current events.
+            News Snap is a news summarizer app that keeps you informed with the latest news stories quickly and easily. Follow these simple steps:
           </p>
-          <p>
-          Once you've selected your preferred news source, you'll see a list of the latest news articles from that source.
-Click on any article you wish to read and summarize.
-          </p>
+          <div className="about-steps">
+            <div className="step-card">
+              <li>Copy and paste any news article into our summarizer tool.</li>
+            </div>
+            <div className="step-card">
+              <li>Get a summarized version of the article, saving you time and effort in keeping up with current events.</li>
+            </div>
+            <div className="step-card">
+              <li>Choose between generic summaries for overall article highlights or aspect-based summaries for specific aspects.</li>
+            </div>
+          </div>
           <Link to="/generic-summarizer">
             <button className="get-started-btn">Get Started</button>
           </Link>
