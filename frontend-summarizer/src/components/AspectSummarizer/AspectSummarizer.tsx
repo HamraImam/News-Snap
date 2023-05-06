@@ -9,13 +9,13 @@ const AspectBasedSummarizer = () => {
   const [isLoading, setIsLoading] = useState(false); // Add this line to create a new state variable for loading
 
 
-  const aspects = ["person", "location", "date", "organization"];
+  const aspects = ["person", "location", "date", "organization", "military weapons", "war_casualties", "criminal activity", "law_enforcement"];
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(event.target.value);
   };
 
-      
+
 
   const fetchData = async () => {
     try {
@@ -98,6 +98,7 @@ const AspectBasedSummarizer = () => {
           </select>
         </div>
       </div>
+      
   
       <div className="input-output-container">
         <div className="input-container">
@@ -113,7 +114,9 @@ const AspectBasedSummarizer = () => {
           />
           <p>
             <span className="word-count">
-              Word count: {inputValue.split(/\s+/).filter((word) => word).length}
+              {/* Word count: {inputValue.split(/\s+/).filter((word) => word).length} */}
+
+              Word count: {inputValue && inputValue.split(/\s+/).filter((word) => word).length}
             </span>
           </p>
         </div>
@@ -130,7 +133,9 @@ const AspectBasedSummarizer = () => {
           {isLoading && <div className="loader"></div>}
           <p>
             <span className="word-count">
-              Word count: {summaryValue.split(/\s+/).filter((word) => word).length}
+              {/* Word count: {summaryValue.split(/\s+/).filter((word) => word).length} */}
+
+              Word count: {summaryValue && summaryValue.split(/\s+/).filter((word) => word).length}
             </span>
           </p>
         </div>
